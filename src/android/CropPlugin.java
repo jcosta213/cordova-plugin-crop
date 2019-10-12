@@ -109,8 +109,8 @@ public class CropPlugin extends CordovaPlugin {
     private String getTempDirectoryPath() {
         File cache = null;
 
-        // SD Card Mounted
-        if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
+        // SD Card Mounted - disable due to keep file stored in cordova context (better for image re-use in other plugins)
+        if (false && Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
             cache = new File(Environment.getExternalStorageDirectory().getAbsolutePath() +
                     "/Android/data/" + cordova.getActivity().getPackageName() + "/cache/");
         }
